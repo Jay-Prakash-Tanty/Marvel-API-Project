@@ -1,0 +1,9 @@
+*{
+    margin:0;
+    padding:0;
+
+}
+.apple{
+    margin-top:10px;
+    border: solid 10px red;
+}
