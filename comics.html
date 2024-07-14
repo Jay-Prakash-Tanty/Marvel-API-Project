@@ -4,9 +4,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./Styles/comics.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="apple">THIS IS  THE COMICS SECTIONS</div>
+    <div id="Absolute_div">
+        you can searchcomics by entering character and all characters related to that will be displayed
+        then select the character to get it's comics
+        <form id="first_divv" class="first_form_tag">
+
+            <input id="search_bar" placeholder="Enter Character Name" type="text"><!-- onkeyup="Detect()"-->
+            <div class="buttons">
+                <button type="submit">Get Character details</button>
+                <button type="reset" onclick="HandelReset()">Reset</button>
+            </div>
+
+
+            <!-- <img src="./Assets/loader_black.gif"/> -->
+        </form>
+        <div class="displayer_container"><div id="displayer"></div></div>
+        <div id="actual_data_displayer" class="gridder"></div>
+    </div>
+    <!-- <p><div class="hi"></p></div>
+    <p id="loader"></p> -->
+    <!-- <div id="div">no</div>
+    <div id="elements">hello how do you do</div> -->
+    <!-- <footer>Hello</footer> -->
+    <!-- <footer id="footer"></footer> -->
+    
 
 <script src="./Scripts/comics.js"></script>
 </body>
