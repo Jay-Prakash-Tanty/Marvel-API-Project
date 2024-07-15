@@ -60,7 +60,7 @@ const get_Character_Data = async (text) =>{
     actual_data_displayer.innerHTML = "";
     console.log("Getting comics Data....");
     try{
-        var k= 1;
+        var k= 0;
         while(id_array[k] != undefined){
 
 
@@ -118,24 +118,3 @@ Absolute_div.addEventListener("submit", function(e){
 
 });
 
-// loader gif
-
-var loader;
-function loadNow(opacity){
-    if(opacity <=0){
-        displayContent();
-    }
-    else {
-        loader.style.opacity = opacity;
-        window.setTimeout(function(){
-            loadNow(opacity - 0.05)
-        },100);
-    }
-}
-function displayContent(){
-    loader.style.display = 'none';
-    document.getElementById("Absolute_div").style.display = 'block';
-}
-document.addEventListener("aedadad", function(){
-    loader = document.getElementById("displayer");
-});
