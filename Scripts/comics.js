@@ -1,37 +1,5 @@
 console.log("Hello world");
-var apple = {
-    render: function() {
-        var url = "https://gateway.marvel.com/v1/public/characters?&ts=1&apikey=dedd0192a9362d10475ce65ec4f50954&hash=cb69a9bb60af03a04e9bfae5b18caffd";
-        var loader_animation = document.getElementById("loader");
-        var orange = document.getElementById("footer");
-        var div = document.getElementById("div")
-        var elements = document.getElementById("elements");
-        $.ajax({
-            url:url,
-            type:"GET",
-            beforeSend: function(){
-                console.log("ALlpe");
-                div.innerHTML = `<img src="loader_animation.gif">`;
-            },
-            complete: function(){
-                div.innerHTML = "Successfully done!!!!";
-            },
-            success: function(data){
-                orange.innerHTML = data.attributionHTML;
-                for(var i=16; i<data.data.results.length; i++){
-                    var element = data.data.results[i];
-                    console.log(element.name);
-                }
 
-            },
-            error: function(){
-                loader_animation.innerHTML = "we are sorry!!!!";
-            }
-        });
-    }
-};
-                                 //un comment this to call the above lines of code!!!!
-// apple.render();
 
 
 const first_divv = document.getElementById("first_divv");
@@ -51,13 +19,14 @@ const Absolute_div = document.getElementById("Absolute_div");
 const get_Character_Data = async (text) =>{
 
     actual_data_displayer.innerHTML = "";
+    var id_array =[];
 
-    // displayer.innerHTML = `<img src="./Assets/loader_black.gif"/>`;
-    console.log("Getting Data....");
+    // displayer.innerHTML = `<img src="./Assets/Black panther Loader gif.gif"/>`;
+    console.log("Getting id Data....");
     try
     {
         displayer.style.display = "block";
-        displayer.innerHTML = `<img class="loader" src="./Assets/loader_black.gif"/>`;
+        displayer.innerHTML = `<img class="loader" src="./Assets/Black panther Loader gif.gif"/>`;
         const URL = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${text}&orderBy=name%2Cmodified%2C-name&apikey=dedd0192a9362d10475ce65ec4f50954&ts=1&hash=cb69a9bb60af03a04e9bfae5b18caffd`;
         let response = await fetch(URL);
         let data = await response.json();
@@ -68,27 +37,59 @@ const get_Character_Data = async (text) =>{
             {
                 var element = data.data.results[i];
 
-
-                
-                // name displayer
-
-                const img_url = element.thumbnail.path;
-                const img_extension = element.thumbnail.extension;
-
-
-                // setTimeout (function(){
-                actual_data_displayer.innerHTML += 
-                `<div class="grid_element">
-                    <div>Name: ${element.name}</div>
-                    <div><img src ="${img_url}/portrait_uncanny.${img_extension}"></div>
-                </div>`
-                // },1000);
+                // character id extractor
+                const charcter_id = element.id;
+                //variable to check if that charcter had any comics or not
+                const comics_checker = element.comics.returned;
+                if( comics_checker!= 0)
+                    {
+                        id_array.push(charcter_id);
+                        console.log(element.name +"'s "+"id=" +charcter_id );
+                    }
 
             }
+            console.log("hopefully ids are stored here"+id_array);
+            
+    }
+    catch(err){
+        console.log("we are sorry There was an error!! try checking your internet connection" + err)
+        // make a html tag using back tick to tell there was an error later
+    }
+
+// const extract_comic_data = async () =>{
+    actual_data_displayer.innerHTML = "";
+    console.log("Getting comics Data....");
+    try{
+        var k= 1;
+        while(id_array[k] != undefined){
 
 
 
-        // console.log(data.data.results);
+
+            const URL = `https://gateway.marvel.com/v1/public/characters/${id_array[k]}/comics?apikey=dedd0192a9362d10475ce65ec4f50954&ts=1&hash=cb69a9bb60af03a04e9bfae5b18caffd`;
+            let response_2nd = await fetch(URL);
+            let data_2nd = await response_2nd.json();
+            
+            const comics_2nd_checker = data_2nd.data.count;
+            for(var j =0;j<comics_2nd_checker;j++){
+                var element_2nd = data_2nd.data.results[j];
+
+                console.log("hopefully titles:" + element_2nd.title);
+                const img_url = element_2nd.thumbnail.path;
+                const img_extension = element_2nd.thumbnail.extension;
+                actual_data_displayer.innerHTML += 
+                `<div class="grid_element">
+                    <div>Title of Comic: ${element_2nd.title}</div>
+                    <div><img src ="${img_url}/portrait_uncanny.${img_extension}"></div>
+                </div>`
+                $("#displayer").fadeOut();
+
+
+            }
+            console.log("this many times while loop is looped" + k)
+            k++;
+        }
+
 
 
     }
@@ -96,11 +97,13 @@ const get_Character_Data = async (text) =>{
         console.log("we are sorry There was an error!! try checking your internet connection" + err)
         // make a html tag using back tick to tell there was an error later
     }
-    // setTimeout (function(){
-        $("#displayer").fadeOut();
-    // },1000);
+        // setTimeout (function(){
+            // $("#displayer").fadeOut();
+            // },1000);
+        };
 
-};
+
+
 
 
 Absolute_div.addEventListener("submit", function(e){
