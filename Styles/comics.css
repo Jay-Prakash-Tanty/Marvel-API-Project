@@ -107,3 +107,16 @@ input,button{
 #elements{
 
 } */
+ #fudge{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+.apple_sauce{
+
+
+}
+img{
+    width: 10px;
+    height: 10px;
+}
