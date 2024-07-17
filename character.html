@@ -14,11 +14,11 @@
           <img src="./Assets/m-logo-dharmendra.png" alt="marvel logo" srcset="">
         </div>
         <div class="char-header-card">
-          <img src="./Assets/character-design-china-name-removebg-preview.png" alt="" srcset="">
+          <img src="./Assets/character-design-china-name-removebg-preview.png" alt="" srcset="" onclick="reload()">
         </div>
         <div class="search-bar flex">
           <input type="text" name="" id="search-text">
-          <button type="button" id="search-button">Search</button>
+          <button type="button" id="search-button" onclick="search();">Search</button>
         </div>
       </div>
     </div>
@@ -40,10 +40,15 @@
     </div>
   </main>
   <template id="template-char-card">
-    <div class="card">
-      <img src="https://via.placeholder.com/200x250.com" alt="char-image" id="char-img">
-      <h2 id="char-name">Character Name</h2>
-  </div>
+    <div class = card>
+      <div class = image>
+        <img href = "#" src = "https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg" id="char-img">
+      </div>
+      <div class = content>
+        <h3 class="char-name" id="char-name">This is content</h3>
+        <p class="char-description" id="char-description">DIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
+      </div>
+    </div>
   </template>
   <script src="./Scripts/character.js"></script>
 </body>
