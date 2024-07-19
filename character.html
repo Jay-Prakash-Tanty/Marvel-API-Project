@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Characters</title>
   <link rel="stylesheet" href="./Styles/character.css">
+  <script src="https://kit.fontawesome.com/1caf57d602.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <nav>
@@ -22,34 +23,79 @@
         </div>
       </div>
     </div>
-    <div class="main-nav flex">
-      <div class="container nav-bar">
-        <ul class="nav-links flex">
-          <li class="hover-links"><a href="#">Home</a></li>
-          <li class="hover-links"><a href="#">Characters</a></li>
-          <li class="hover-links"><a href="#">Comics</a></li>
-          <li class="hover-links"><a href="#">Movies</a></li>
-        </ul>
+  </nav>
+  <main>
+    <!-- page 1 -->
+    <div class="page-1" id="page-1">
+      <div class="home">
+        <a href="index.html">
+          <i class="fa-solid fa-house" style="color: #f1f1f1;"></i>
+        </a>
+      </div>
+      <div class="card-container flex container" id="card-container"> 
       </div>
     </div>
-  </nav>
 
-  <main>
-    <div class="card-container flex container" id="card-container">
+    <!-- page 2 -->
+    <div class="page-2 container hidden" id="page-2">
+      <div class="back">
+        <button id="back" class="back-btn" onclick="goBack();">Back</button>
+      </div>
+      
+      <div class="pg-2-show-char flex">
+        <div class="pg-2-char-img">
+          <img src="https://placehold.co/200x200" id="pg-2-char-img" alt="Character Image">
+        </div>
+        <div class="pg-2-char-detail">
+          <h2 class="pg-2-char-name" id="pg-2-char-name">Character Name</h2>
+          <p class="pg-2-char-desc" id="pg-2-char-desc">Character Description</p>
+        </div>
+      </div>
+
+      <div class="comics">
+        <h1 class="comics-title title">Comics</h1>
+        <div class="comics-container flex card-container" id="comics-container">
+        </div>
+      </div>
+
+      <div class="series">
+        <h1 class="series-title title">Series</h1>
+        <div class="series-container flex card-container" id="series-container">
+        </div>
+      </div>
+
+      <div class="stories">
+        <h1 class="stories-title title">Stories</h1>
+        <div class="stories-container flex card-container" id="stories-container">
+        </div>
+      </div>
       
     </div>
   </main>
+
   <template id="template-char-card">
-    <div class = card>
-      <div class = image>
-        <img href = "#" src = "https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg" id="char-img">
+    <div class="card">
+      <div class="image">
+        <img src="https://i.pinimg.com/originals/a4/7b/a5/a47ba59b4a353e0928ef0551ca44f980.jpg" id="char-img" alt="Character Image">
       </div>
-      <div class = content>
+      <div class="content">
         <h3 class="char-name" id="char-name">This is content</h3>
-        <p class="char-description" id="char-description">DIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
+        <p class="char-description" id="char-description">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
       </div>
     </div>
   </template>
+
+  <template id="template-comic-card">
+    <div class="card">
+      <div class="image">
+        <img src="https://th.bing.com/th/id/OIP.ZuQfVuNiYVqA_CZ8fuI-0wHaHa?rs=1&pid=ImgDetMain" id="comic-img" alt="Comic Image">
+      </div>
+      <div class="content">
+        <h3 class="comic-name" id="comic-name">Comic Name</h3>
+      </div>
+    </div>
+  </template>
+
   <script src="./Scripts/character.js"></script>
 </body>
 </html>
