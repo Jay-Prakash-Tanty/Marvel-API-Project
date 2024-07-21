@@ -8,6 +8,8 @@
   <script src="https://kit.fontawesome.com/1caf57d602.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Loader Container -->
+
   <nav>
     <div class="header-section">
       <div class="container flex">
@@ -24,9 +26,11 @@
       </div>
     </div>
   </nav>
+  
   <main>
     <!-- page 1 -->
     <div class="page-1" id="page-1">
+      <div class="loader-1 loader"></div>
       <div class="home">
         <a href="index.html">
           <i class="fa-solid fa-house" style="color: #f1f1f1;"></i>
@@ -41,7 +45,7 @@
       <div class="back">
         <button id="back" class="back-btn" onclick="goBack();">Back</button>
       </div>
-      
+      <div class="loader"></div>
       <div class="pg-2-show-char flex">
         <div class="pg-2-char-img">
           <img src="https://placehold.co/200x200" id="pg-2-char-img" alt="Character Image">
@@ -54,19 +58,22 @@
 
       <div class="comics">
         <h1 class="comics-title title">Comics</h1>
-        <div class="comics-container flex card-container" id="comics-container">
+        <div class="loader-2 loader"></div>
+        <div class="comics-container flex card-container container" id="comics-container">
         </div>
       </div>
 
       <div class="series">
         <h1 class="series-title title">Series</h1>
-        <div class="series-container flex card-container" id="series-container">
+        <div class="loader-3 loader"></div>
+        <div class="series-container flex card-container container" id="series-container">
         </div>
       </div>
 
       <div class="stories">
         <h1 class="stories-title title">Stories</h1>
-        <div class="stories-container flex card-container" id="stories-container">
+        <div class="loader-4 loader"></div>
+        <div class="stories-container flex card-container container" id="stories-container">
         </div>
       </div>
       
@@ -80,6 +87,7 @@
       </div>
       <div class="content">
         <h3 class="char-name" id="char-name">This is content</h3>
+        <br>
         <p class="char-description" id="char-description">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.</p>
       </div>
     </div>

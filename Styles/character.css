@@ -12,7 +12,8 @@
 }
 
 body{
-  background-color: aliceblue;
+  background-color: rgb(0, 0, 0);
+  color:#ffffff;
 }
 
 ul li {
@@ -42,7 +43,9 @@ nav {
   width: 1180px;
   margin-inline: auto;
   justify-content: space-between;
+  align-items: center;
   padding-block: 4px;
+  overflow: hidden;
 }
 
 .logo img {
@@ -74,7 +77,8 @@ nav {
   height: 100%;
   background-color: rgb(226, 43, 43);
   color: rgb(255, 255, 255);
-  padding: 8px 24px;
+  padding-block: auto;
+  padding-inline: 24px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -101,21 +105,23 @@ nav {
   justify-content : flex-start;
   flex-wrap:wrap;
   margin-inline: auto;  
-  row-gap: 50px;
+  row-gap: 70px;
   place-content: center;
-  margin-top: 90px;
+  margin-top: 30px;
+  padding-block: 80px;
+  overflow: hidden;
 }
 
 .card-container .card {
   position: relative;
   width : 240px;
   height : 200px;  
-  background-color : #fff;
+  background-color : #414141;
   margin : 40px 20px;
   padding : 20px 15px;
   display : flex;
   flex-direction : column;
-  box-shadow : 0 5px 20px rgba(0,0,0,0.5);
+  box-shadow : 0 5px 7px rgba(134, 134, 134, 0.5);
   transition : 0.3s ease-in-out;
   border-radius : 15px;
   cursor: grab;
@@ -145,7 +151,7 @@ nav {
   position : relative;
   top : -140px;
   padding : 10px 15px;
-  color : #111;
+  color : #ffffff;
   text-align : center;
   visibility : hidden;
   opacity : 0;
@@ -177,6 +183,7 @@ nav {
   border-radius: 7px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  font-size: 1.2rem;
 }
 
 .back-btn:hover{
@@ -200,7 +207,7 @@ nav {
   height: 200px;
   width: 200px;
   overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  box-shadow: rgba(198, 195, 195, 0.15) 0px 15px 25px, rgba(224, 224, 224, 0.05) 0px 5px 10px;
   transition : 0.3s ease-in-out;
   border-radius: 16px;
 }
@@ -213,6 +220,7 @@ nav {
 .pg-2-char-detail{
   max-width: 400px;
   text-align: center;
+  color: #ffffff;
 }
 
 .pg-2-char-name {
@@ -231,4 +239,279 @@ nav {
 
 .show {
   display: block !important;
+}
+
+/* loader */
+.loader-1 {
+  left: 45%;
+  top: 40vh;
+  width: 44.8px;
+  height: 44.8px;
+  color: #554cb5;
+  position: relative;
+  background: radial-gradient(11.2px,currentColor 94%,#0000);
+}
+
+.loader-1:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(10.08px at bottom right,#0000 94%,currentColor) top    left,
+          radial-gradient(10.08px at bottom left ,#0000 94%,currentColor) top    right,
+          radial-gradient(10.08px at top    right,#0000 94%,currentColor) bottom left,
+          radial-gradient(10.08px at top    left ,#0000 94%,currentColor) bottom right;
+  background-size: 22.4px 22.4px;
+  background-repeat: no-repeat;
+  animation: loader-1 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+
+@keyframes loader-1 {
+  33% {
+    inset: -11.2px;
+    transform: rotate(0deg);
+  }
+
+  66% {
+    inset: -11.2px;
+    transform: rotate(90deg);
+  }
+
+  100% {
+    inset: 0;
+    transform: rotate(90deg);
+  }
+}
+
+
+.loader-2,.loader-3,.loader-4 {
+  left: 50%;
+  top: 40px;
+  width: 44.8px;
+  height: 44.8px;
+  color: #554cb5;
+  position: relative;
+  background: radial-gradient(11.2px,currentColor 94%,#0000);
+}
+
+.loader-2:before,.loader-3:before,.loader-4:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(10.08px at bottom right,#0000 94%,currentColor) top    left,
+          radial-gradient(10.08px at bottom left ,#0000 94%,currentColor) top    right,
+          radial-gradient(10.08px at top    right,#0000 94%,currentColor) bottom left,
+          radial-gradient(10.08px at top    left ,#0000 94%,currentColor) bottom right;
+  background-size: 22.4px 22.4px;
+  background-repeat: no-repeat;
+  animation: loader-2 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+
+@keyframes loader-2 {
+  33% {
+    inset: -11.2px;
+    transform: rotate(0deg);
+  }
+
+  66% {
+    inset: -11.2px;
+    transform: rotate(90deg);
+  }
+
+  100% {
+    inset: 0;
+    transform: rotate(90deg);
+  }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1348px){
+  .container {
+    width: 1100px;
+  }
+  .back-btn{
+    font-size: 1.6rem;
+  }
+} 
+
+@media (max-width: 1144px){
+  .container {
+    width: 940px;
+  }
+
+  .card-container{
+    width: 940px;
+  }
+
+  .logo img {
+    width: 90px; 
+  }
+
+  .char-header-card img {
+    width: 190px;
+  }
+
+  .search-bar input{
+    width: 140px;
+  }
+
+  .home {
+    font-size: 1.6rem;
+    padding: 10px;
+  }
+} 
+
+@media (max-width: 987px){
+  .container {
+    width: 750px;
+  }
+  
+}
+
+@media (max-width: 892px) {
+  .container {
+    width: 700px;
+  }
+
+  .logo img {
+    width: 80px; 
+  }
+
+  .char-header-card img {
+    width: 180px;
+  }
+
+  .search-bar input{
+    width: 140px;
+  }
+
+  .home {
+    font-size: 1.2rem;
+    padding: 10px;
+  }
+
+  .card-container{
+    margin-top: 50px;
+    padding-block: 70px;
+  }
+  .card-container .card {
+    margin: 48px 20px;
+  }
+
+  .back-btn{
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: 650px;
+  }
+
+  .home {
+    bottom: 15px;
+    right: 20px;
+  }
+
+  .back-btn{
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 682px) {
+  .header-section{
+    padding-block: 10px;
+  }
+
+  .char-header-card img {
+    display: none;
+  }
+
+  .container {
+    width: 550px;
+    justify-content: space-evenly;
+  }
+
+  .card-container{
+    width: 550px;
+  }
+
+  .search-bar {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 567px) {
+  .container {
+    width: 450px;
+  }
+
+  .card-container{
+    width: 450px;
+  }
+}
+
+@media (max-width: 447px) {
+  .container {
+    width: 350px;
+  }
+
+  .card-container{
+    width: 350px;
+  }
+
+  .logo img {
+    width: 80px; 
+  }
+
+  .search-bar {
+    height: 24px;
+  }
+
+  #search-text{
+    font-size: 1 rem;
+  }
+
+  #search-button{
+    font-size: 0.7rem;
+    padding-block: auto;
+    padding-inline: 12px;
+  }
+
+  #search-text{
+    width: 150px;
+  }
+  .home {
+    right: 10px;
+  }
+}
+
+@media (max-width: 370px) {
+  .home {
+    font-size: 0.9rem;
+    bottom: 85vh;
+    right: 85vw;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    padding-left: 20px;
+  }
+  .pg-2-char-name{
+    font-size: 1.5rem;
+  }
+
+  .pg-2-char-img{
+    height: 150px;
+    width: 150px;
+  }
+
+  .pg-2-char-desc{
+    font-size: 0.7rem;
+  }
+
+  .back-btn{
+    margin-left: 20px;
+  }
 }
