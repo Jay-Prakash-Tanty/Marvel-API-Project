@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Styles/movie.css">
+    <title>Movies</title>
+</head>
+
+<body>
+    <img class="logo" src="Assets/Marvel Logo.png" />
+    <div class="nav">
+        <nav>
+            <a class="home" href="index.html">Home</a>
+            <a class="comics" href="index.html">comics</a>
+            <a class="Movies" href="index.html">Movies</a>
+            <a class="characters" href="index.html">characters</a>
+        </nav>
+    </div>
+
+    <div class="wrapper">
+        <div class="search-container">
+          <div class="search-element">
+            <input
+              type="text"
+              class="movies-input"
+              placeholder="Search"
+              id="movie-search-box"
+              onkeyup="suggestMovies()"
+              onclick="suggestMovies()"
+            />
+  
+            <div class="search-list" id="search-list">
+            </div>
+          </div>
+        </div>
+  
+        <div class="container">
+          <div class="result-container">
+            <div class="result-grid" id="result-grid">
+            </div>
+          </div>
+        </div>
+      </div>
+    
+</body>
+
+<script type="text/javascript" src="Scripts/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="Scripts/movies.js"></script>
+
+</html>
