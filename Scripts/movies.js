@@ -81,7 +81,6 @@ function displayMovieDetails(details){
     </div>
     <div class = "movie-poster">
         <img src = "${(details.cover_url != "N/A") ? details.cover_url : "Marvel Logo.png"}" alt = "movie poster">
-    </div>
     `;
 }
 
