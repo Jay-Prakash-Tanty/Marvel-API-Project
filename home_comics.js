@@ -13,7 +13,7 @@ function wisper(){
           all_disp_none.classList.add("loader_setting_2");
 
 
-        console.log("removed i guess");
+        
 
 
 
@@ -41,7 +41,7 @@ function wisper(){
     // light box
     // document.querySelectorAll(".swiper-wrapper img").forEach(boxes => {
     //   boxes.onclick = ()=>{
-    //     console.log("hehoooe");
+    //     
     
     //     var blur_it = document.getElementById("blur");
     //     blur_it.classList.toggle("active");
@@ -108,7 +108,7 @@ var array_of_sneak_peek = ["102290","105860","32926","38687","22822","93013","11
 
 for(let i=0;i<8; i++){
 
-  console.log("loop no:"+i);
+  
   var swiper_wrapper = document.getElementById("swiperrer");
 
   var URRL = `https://gateway.marvel.com/v1/public/comics/${array_of_sneak_peek[i]}?apikey=dedd0192a9362d10475ce65ec4f50954&ts=1&hash=cb69a9bb60af03a04e9bfae5b18caffd`
@@ -116,13 +116,135 @@ for(let i=0;i<8; i++){
   let daattaa = await fetch(URRL);
   let datta_store = await daattaa.json();
 
-  console.log("conversion to object is done");
+  
 
   swiper_wrapper.innerHTML += `<div id="image_${i}" class="boxes swiper-slide"><img class="puda" src=${datta_store.data.results[0].thumbnail.path}/portrait_incredible.${datta_store.data.results[0].thumbnail.extension}></div>`;
 
 
+
+  // creators array storrer starts
+
+          var creator_array = [];
+          let w =0;
+          for( ; datta_store.data.results[0].creators.items[w]!=null;w++){}
+          
+ 
+  // creators array storrer ends
+
+
+  // characters array storrer starts
+
+                                                                                                                      let g = 0;
+                                                                                                                      for( ; datta_store.data.results[0].characters.items[g]!=null;g++){}
+                                                                                                                      
+
+
+
+  // characters array storrer ends
+
   var anyyting = document.getElementById("anyyting");
-  anyyting.innerHTML += `<div class="image_activator"><img class="ind_lightbnoxes"src=${datta_store.data.results[0].thumbnail.path}/clean.${datta_store.data.results[0].thumbnail.extension}><button id = "bbuuttnn" class="boxes" onclick="close_off()">close</button><div>hello world</div></div>`
+   
+   var on_sale_date =datta_store.data.results[0].dates[0].date;
+
+   let only_on_sale_date = on_sale_date.substr(0,10);
+
+  anyyting.innerHTML += 
+  `<div class="image_activator">
+
+    <img class="ind_lightbnoxes"src=${datta_store.data.results[0].thumbnail.path}/clean.${datta_store.data.results[0].thumbnail.extension}>
+
+    <button id = "bbuuttnn" class="boxes" onclick="close_off()">
+      close
+    </button>
+
+    <div>
+      title:${datta_store.data.results[0].title}
+    </div>
+
+    <div>
+      description:${datta_store.data.results[0].description}
+    </div>
+
+    <div>
+      On-Sale-Date:${only_on_sale_date}
+    </div>
+
+    <div>
+      link:${datta_store.data.results[0].urls[0].url}
+    </div>
+
+    <div>
+      Creators:
+      <div id="creator_${i}">
+      </div>
+    </div>
+
+    <div>
+      Characters:
+      <div id="characcetrs_${i}">
+      </div>
+    </div>
+
+  </div>`
+
+  // creators displayers starts
+
+            var creator_var = document.getElementById(`creator_${i}`);
+            for(let t =0; t<w;t++){
+            creator_var.innerHTML += 
+            `<div>${datta_store.data.results[0].creators.items[t].name}</div>
+             <div>${datta_store.data.results[0].creators.items[t].role}</div>`}
+
+  // creators displayers ends
+
+
+  // characters displayers starts
+                                                                                                           var characcetrs_var = document.getElementById(`characcetrs_${i}`);
+                                                                                                           console.log("count 0");
+                                                                                                           for(let k=0; k<g;k++){
+                                                                                                            console.log("count 1");
+                                                                                                             characcetrs_var.innerHTML +=
+                                                                                                             
+                                                                                                             `<div>
+                                                                                                                 ${datta_store.data.results[0].characters.items[k].name}
+                                                                                                              </div>
+                                                                                                              <div class="gugu${i}"></div>`;
+                                                                                                              console.log("count 2");
+                                                                                                             
+                                                                                                             
+                                                                                                                             //characters tumbnail extractor starts 
+                                                                                                                 
+                                                                                                                            //  var comics_char_data_extract = async ()=>{
+                                                                                                                              console.log("count 3");
+                                                                                               
+                                                                                                                     
+                                                                                                                                 var comic_light_char_name = datta_store.data.results[0].characters.items[k].name;
+                                                                                                                                 var URRL_2 = `https://gateway.marvel.com:443/v1/public/characters?name=${comic_light_char_name}&apikey=dedd0192a9362d10475ce65ec4f50954&ts=1&hash=cb69a9bb60af03a04e9bfae5b18caffd`
+                                                                                                                     
+                                                                                                                                 let daattaa_2 = await fetch(URRL_2);
+                                                                                                                                 let datta_store_2 = await daattaa_2.json();
+                                                                                                                                 
+                                                                                                                                //  
+                                                                                                                                 let thumbnail_2 = datta_store_2.data.results[0].thumbnail.path;
+                                                                                                                                 let extension_2 = datta_store_2.data.results[0].thumbnail.extension;
+
+                                                                                                                                 
+                                                                                                                                 
+                                                                                                                     
+                                                                                               
+                                                                                                                                 characcetrs_var.innerHTML += `<img id="char_image" src=${thumbnail_2}/standard_large.${extension_2}>`;
+                                                                                                                                 
+                                                                                                                                  
+                                                                                                                                   
+                                                                                                                               }
+                                                                                                                              //  comics_char_data_extract();
+                                                                                                                                //  }
+                                                                                                                               //characters tumbnail extractor ends 
+
+
+  // characters displayers ends
+
+
 }
 
 wisper();
@@ -130,32 +252,38 @@ wisper();
          document.querySelectorAll(".swiper-wrapper div").forEach(boxes => {
              boxes.onclick = ()=>{
 
-             console.log("hehoooe");
+             
 
              var blur_it = document.getElementById("blur");
              blur_it.classList.toggle("active");
 
 
              var gulla = boxes.getAttribute("id");
-             console.log("gulla"+gulla);
+             
 
              var count =0;
              for(let j =0;gulla!=`image_${j}`;j++){
               
               count++;
              }
+
+             
              
 
             //  count+1 is the one we need
 
             var gamit = document.querySelectorAll(".image_activator");
-            console.log("magit"+gamit[count]);
+            
+
+
+
+            
 
             gamit[count].classList.add("image_activator_2");
 
             localStorage.setItem("radiogaga",JSON.stringify(gamit[count]));
 
-console.log("JSON.stringify(gamit[count]):"+JSON.stringify(gamit[count]));
+
              
 
 
@@ -214,11 +342,11 @@ function close_off(){
 // function blur_toggle(){
 //   var blur_it = document.getElementById("blur");
 //   blur_it.classList.toggle("active");
-//   console.log("gulgulu");
+//   
 // }
 // // blur()
 // function increment (){
-//   console.log("you are g ay")
+//   
 //   you += 1
 //   countEl.innerText = you
 
