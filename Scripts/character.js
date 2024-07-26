@@ -1,22 +1,34 @@
 const url = 'https://gateway.marvel.com/v1/public/characters?ts=1&apikey=705d91f0b752751608085d8bd3da3fe2&hash=10d96edf8082f8797acbb2bca03664b0';
 const baseUrl = "https://gateway.marvel.com/v1/public/characters";
 const key = "ts=1&apikey=705d91f0b752751608085d8bd3da3fe2&hash=10d96edf8082f8797acbb2bca03664b0";
-let input = document.getElementById("search-text");
 
-const loaderContainer = document.querySelector(".loader");
-
-function showLoader() {
-    loaderContainer.style.display = 'flex';
-}
-
-function hideLoader() {
-    loaderContainer.style.display = 'none';
-}
-
+const searchBox = document.querySelector(".search-box");
+const searchBtn = document.querySelector(".search-icon");
+const cancelBtn = document.querySelector(".cancel-icon");
+const searchInput = document.querySelector("input");
 document.addEventListener("DOMContentLoaded", () => fetchdata(""));
 
 function reload() {
     window.location.reload();
+}
+
+searchBtn.onclick = () => {
+    searchBox.classList.add("active");
+    searchBtn.classList.add("active");
+    searchInput.classList.add("active");
+    cancelBtn.classList.add("active");
+    searchInput.focus();
+    if (searchInput.value != "") {
+        search();
+    }
+}
+
+cancelBtn.onclick = () => {
+    searchBox.classList.remove("active");
+    searchBtn.classList.remove("active");
+    searchInput.classList.remove("active");
+    cancelBtn.classList.remove("active");
+    // searchInput.value = "";
 }
 
 function search() {
@@ -26,7 +38,7 @@ function search() {
     page2.classList.add('hidden');
     const cardsContainer = document.getElementById('card-container');
     cardsContainer.innerHTML = "";
-    fetchdata(input.value);
+    fetchdata(searchInput.value);
 }
 
 async function fetchdata(input) {
@@ -43,7 +55,7 @@ async function fetchdata(input) {
         }
         const data = await res.json();
         console.log(data);
-        document.querySelector("#search-text").value = " ";
+        // document.querySelector("#search-text").value = " ";
         binddataShow(data.data.results);
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -95,6 +107,7 @@ function showDetails(data) {
 
     charImg.src = `${data.thumbnail.path}/standard_xlarge.${data.thumbnail.extension}`;
     charName.innerHTML = data.name;
+    console.log(data.name);
     charDesc.innerHTML = data.description || "No Description Found";
 
     fetchComics(data.id);
