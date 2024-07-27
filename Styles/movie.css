@@ -18,39 +18,15 @@ body{
     opacity: 100%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
     border-bottom: 1px solid rgb(202, 35, 35);  
-    height: 30px;
-}
-
-
-.nav a{
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    width: 120px;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform:uppercase;
-   padding-right: 20px;
-   padding-top: 10px;
-   margin-top: -5px;
 }
 
 .logo{
     cursor: pointer;
-    margin-right: auto;
     margin-left: auto;
     opacity: 0.8;
-    object-fit:cover;
     width: 100%;
-    height:150px;
-}
-
-.nav a:hover{
-    background: blueviolet;
-}
-
-.nav a.home{
-    background: green;
+    height: 60px;
+    object-fit: cover;
 }
 
 .wrapper{
@@ -318,8 +294,33 @@ body{
     }
 }
 
-@media(min-width: 1430px){
+@media(min-width: 768px){
     .logo{
-        height: 220px;
+        height: 120px;
     }
 }
+
+@media(min-width: 1024px){
+    .logo{
+        height: 150px;
+    }
+}
+
+@media(min-width: 1430px){
+    .logo{
+        height: 200px;
+    }
+}
+
+
+.home {
+    position: fixed;
+    bottom: 15px;
+    right: 30px;
+    font-size: 1.5rem;
+    background-color: #414141;
+    padding: 16px 16px;
+    border-radius: 25%;
+    z-index: 9999;
+    box-shadow : 0 0px 7px rgba(216, 215, 215, 0.5);
+  } 
