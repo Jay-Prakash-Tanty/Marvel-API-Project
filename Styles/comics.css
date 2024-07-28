@@ -318,6 +318,9 @@ align-items: center; */
       margin-top:170px
     }
   }
+  .main_char_disp{
+    transition: 0.5s;
+  }
   .main_char_disp:hover{
   transform: translateY(-20px);
   transition: 0.5s;
