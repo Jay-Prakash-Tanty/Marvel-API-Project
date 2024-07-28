@@ -1,4 +1,42 @@
+//haha
+const searchBox = document.querySelector(".search-box");
+const searchBtn = document.querySelector(".search-icon");
+const cancelBtn = document.querySelector(".cancel-icon");
+const searchInput = document.querySelector("input");
+const sklaerch = document.querySelector(".tingting");
 
+sklaerch.classList.add("unclicked");
+
+searchBtn.onclick =()=>{
+
+    //
+    sklaerch.classList.add("fixer");
+    sklaerch.classList.remove("unclicked");
+    //
+    searchBox.classList.add("active");
+    searchBtn.classList.add("active");
+    searchInput.classList.add("active");
+    cancelBtn.classList.add("active");
+    searchInput.focus();
+
+
+        jatra();
+
+    }
+
+cancelBtn.onclick =()=>{
+    //
+    sklaerch.classList.remove("fixer");
+    searchInput.value = "";
+    sklaerch.classList.add("unclicked");
+    //
+    searchBox.classList.remove("active");
+    searchBtn.classList.remove("active");
+    searchInput.classList.remove("active");
+    cancelBtn.classList.remove("active");
+    // searchInput.value = "";
+    }
+// haha
 
 
 
@@ -10,7 +48,7 @@ const displayer = document.getElementById("displayer");
 const actual_data_displayer = document.getElementById("actual_data_displayer");
 const Absolute_div = document.getElementById("Absolute_div");
 
-var fxCtrls = [].slice.call(document.querySelectorAll(".fixer"))
+
 
 
 var limiter_modifier = 14;
@@ -34,6 +72,7 @@ var foo =0;
 
 const get_Character_Data = async (text) =>{
 
+
     actual_data_displayer.innerHTML = "";
     fudge.innerHTML = "";
     var id_array =[];
@@ -44,7 +83,8 @@ const get_Character_Data = async (text) =>{
     try
     {
         displayer.style.display = "block";
-        displayer.innerHTML = `<img class="loader" src="./Assets/Black panther Loader gif.gif"/>`;
+        displayer.innerHTML = `<img class="loader" src="./Assets/Black panther Loader gif.gif"/>
+        <p>Loading...</p>`;
         const URL = `https://gateway.marvel.com/v1/public/characters?nameStartsWith=${text}&orderBy=name%2Cmodified%2C-name&apikey=dedd0192a9362d10475ce65ec4f50954&ts=1&hash=cb69a9bb60af03a04e9bfae5b18caffd`;
         let response = await fetch(URL);
         let data = await response.json();
@@ -81,7 +121,7 @@ const get_Character_Data = async (text) =>{
 };
 
 const extract_comic_data = async () =>{
-    // actual_data_displayer.innerHTML = "";
+    actual_data_displayer.innerHTML = "";
     var id_2nd_array = [];
     
 
@@ -103,7 +143,7 @@ const extract_comic_data = async () =>{
     // id_4th_array= JSON.stringify(id_2nd_array);
     // 
     // 
-    
+
     try{
         // 
         // 
@@ -119,16 +159,16 @@ const extract_comic_data = async () =>{
             var foo =0 ;
             let ju =k;
             ju=k+1
-            console.log("outerloop runned this many times: should be same as no of ids it extracted"+ju);
+            // console.log("outerloop runned this many times: should be same as no of ids it extracted"+ju);
             console.log(" id extracted is:"+JSON.parse(id_2nd_array[k].dattaa));
 
             
 
             const URL = `https://gateway.marvel.com/v1/public/characters/${JSON.stringify(id_2nd_array[k].dattaa)}/comics?apikey=dedd0192a9362d10475ce65ec4f50954&ts=1&hash=cb69a9bb60af03a04e9bfae5b18caffd`;
             
-            let response_2nd = await fetch(URL);
+            let response_2nd = await fetch(URL); //await
             
-            let data_2nd = await response_2nd.json();
+            let data_2nd = await response_2nd.json(); //await
             
             // var comics_4th_checker =  comics_2nd_checker
             const comics_2nd_checker = data_2nd.data.count;
@@ -136,10 +176,10 @@ const extract_comic_data = async () =>{
             // if(comics_2nd_checker!=comics_4th_checker)
             //     {var foo =foo}
             // else {foo=0}
-            
+            console.log("is this running");
             if(localStorage.getItem("modelore")!="reset"){
                 foo=localStorage.getItem("modelore");
-                console.log("should be 14"+ localStorage.getItem("modelore"));
+                // console.log("should be 14"+ localStorage.getItem("modelore"));
                 // console.log("outerloop runned this many times: should be same as no of ids it extracted"+ju);
                 // debugger;
 
@@ -153,46 +193,59 @@ const extract_comic_data = async () =>{
             
             
             for(var o = foo; o<comics_2nd_checker; o++){
+                console.log("2)is this running");
                 var element_2nd = data_2nd.data.results[o];
 
-                console.log("no_of_comics_data_retunred_counter ka value if ke just pehele"+no_of_comics_data_retunred_counter)
-                console.log("limiter ka value if ke just pehele"+limiter);
-                console.log("value of o:"+o);
-                console.log("kkkkkkkkkkkkkkkkkkkkkkk="+k);
+                // console.log("no_of_comics_data_retunred_counter ka value if ke just pehele"+no_of_comics_data_retunred_counter)
+                // console.log("limiter ka value if ke just pehele"+limiter);
+                // console.log("value of o:"+o);
+                // console.log("kkkkkkkkkkkkkkkkkkkkkkk="+k);
                 
-                if(no_of_comics_data_retunred_counter>=limiter)
-                    
-                    {
-                        const fudge = document.getElementById("fudge");
-                        fudge.innerHTML = `<button class="apple_sauce" onclick="load_morer()">LOAD MORE</button>`;
-                        // var k_modiifer = localStorage.getItem("array_key_storrer")
-
-                        localStorage.setItem("fourteen_pluser",no_of_comics_data_retunred_counter)
-                        // var seesh = o+1;
-                        localStorage.setItem("O_ppa",o);
-
-                        localStorage.setItem("k_amplifier",k);
-
-                        console.log("kkkkkkkkkkkkkkkkkkkkkkk="+k);
-                        
-                        
-                        console.log("o ka value" + o);
-
-                        break outerLoop;
-                        
-                    }
-
+                                                                                            //    if(no_of_comics_data_retunred_counter>=limiter)
+                                                                                                   
+                                                                                            //        {
+                                                                                            //            const fudge = document.getElementById("fudge");
+                                                                                            //            fudge.innerHTML = `<button class="apple_sauce" onclick="load_morer()">LOAD MORE</button>`;
+                                                                                            //            // var k_modiifer = localStorage.getItem("array_key_storrer")
+                                                                               
+                                                                                            //            localStorage.setItem("fourteen_pluser",no_of_comics_data_retunred_counter)
+                                                                                            //            // var seesh = o+1;
+                                                                                            //            localStorage.setItem("O_ppa",o);
+                                                                               
+                                                                                            //            localStorage.setItem("k_amplifier",k);
+                                                                               
+                                                                                            //            console.log("kkkkkkkkkkkkkkkkkkkkkkk="+k);
+                                                                                                       
+                                                                                                       
+                                                                                            //            console.log("o ka value" + o);
+                                                                               
+                                                                                            //            break outerLoop;
+                                                                                                       
+                                                                                            //        }
+                                                                               
                     const img_url = element_2nd.thumbnail.path;
                     const img_extension = element_2nd.thumbnail.extension;
+                    const hahahuhu = element_2nd.urls[0].url;
+                    console.log("should be infinite links"+hahahuhu)
+                    console.log("3)is this running");
                     actual_data_displayer.innerHTML += 
                     `<div class="grid_element">
-                        <div>Title of Comic: ${element_2nd.title}</div>
-                        <div><img src ="${img_url}/portrait_uncanny.${img_extension}"></div>
-                    </div>`
+
+                        <div><a href="${hahahuhu}" target="_blank" rel="noopener noreferrer" ><img class="main_char_disp" src ="${img_url}/portrait_uncanny.${img_extension}"></div></a>
+
+                    </div>`;
+                    console.log("must have displayed");
+
+
+
+
+
+
                     $("#displayer").fadeOut();
 
                     
                     no_of_comics_data_retunred_counter++;
+                    console.log("no_of_comics_data_retunred_counter"+no_of_comics_data_retunred_counter);
 
 
 
@@ -201,6 +254,7 @@ const extract_comic_data = async () =>{
             localStorage.setItem("modelore",bang);
             
             k++;
+            console.log("nos of comics in one id"+k);
 
         }
 
@@ -216,8 +270,6 @@ const extract_comic_data = async () =>{
             // },1000);
    
 };
-
-
             function load_morer(){
                 
 
@@ -280,15 +332,21 @@ const extract_comic_data = async () =>{
 
             }
 
+        function jatra(){
+            var fxCtrls = [].slice.call(document.querySelectorAll(".fixer"))
 
+            console.log("fxCtrls"+fxCtrls);
 
-    fxCtrls.forEach(function(ctrl) {
+            fxCtrls.forEach(function(ctrl) {
 
-        ctrl.addEventListener("click", custom_applyFx);
-        
-    });
+            ctrl.addEventListener("click", custom_applyFx);
+            
+        });
 
+        }
     function custom_applyFx(e){
+
+        console.log("apple is gub");
         e.preventDefault();
         
         const search_Bar_Value = document.getElementById("search_bar");
@@ -296,7 +354,6 @@ const extract_comic_data = async () =>{
         displayer.innerText = text;
     
         get_Character_Data(text);
-       
     }
 
 // loader gif
