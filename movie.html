@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Styles/movie.css">
+    <script src="https://kit.fontawesome.com/8984f730b7.js" crossorigin="anonymous"></script>
+    <title>Movies</title>
+</head>
+
+<body>
+
+    <div class="nav">
+    </div>
+
+    <div class="wrapper">
+        <div class="search-container">
+          <div class="search-element">
+
+
+            <nav>
+              <div class="search-box">
+                <input 
+                  id="movie-search-box" 
+                  type="text" 
+                  class="movies-input"
+                  placeholder="Search"
+                  onkeyup="suggestMovies()"
+                  onclick="suggestMovies()" 
+                  />
+                  <div class="search-list" id="search-list">
+                  </div>
+                <div id="no_sence" class="search-icon">
+                  <button class="tingting"><i class="fas fa-search"></i></button>
+                  </div>
+  
+                  <div class="cancel-icon">
+                      <i class="fas fa-times"></i>
+                  </div>
+              </div>
+            </nav>
+            <!-- <input
+              type="text"
+              class="movies-input"
+              placeholder="Search"
+              id="movie-search-box"
+              onkeyup="suggestMovies()"
+              onclick="suggestMovies()"
+            />
+  
+            <div class="search-list" id="search-list">
+            </div> -->
+          </div>
+        </div>
+  
+        <div class="container">
+          <div class="result-container">
+            <div class="result-grid" id="result-grid">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home">
+        <a href="index.html">
+          <i class="fa-solid fa-house" style="color: #f1f1f1;"></i>
+        </a></div>
+    
+</body>
+
+<script type="text/javascript" src="Scripts/movies.js"></script>
+
+</html>
