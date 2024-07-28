@@ -1,7 +1,8 @@
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
+var swiper = new Swiper(".mySwiper_2", {
+    slidesPerView: 6,
     centeredSlides: true,
     spaceBetween: 40,
+    loop: true,
     pagination: {
       el: ".swiper-pagination",
       type: "fraction",
