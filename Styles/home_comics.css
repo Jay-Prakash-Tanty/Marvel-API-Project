@@ -9,7 +9,7 @@ body{
     /* background-color: blanchedalmond; */
     background-color: black;
 }
-
+anyyting
 .comics_sneak_peak{
 
     /* margin-top:200px; *//* tempo */
@@ -540,6 +540,8 @@ width: auto;
     width:80%;
     box-shadow: 0px 0px 50px 5px rgb(100, 89, 89);
     background-color: rgba(0,0,0,0.85);
+
+    z-index: 999;
 
 
 
